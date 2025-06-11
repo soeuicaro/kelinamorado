@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Minha Namorada - Dia dos Namorados 💖</title>
+    <meta name="description" content="Um site especial de Dia dos Namorados" />
+    <meta name="author" content="Lovable" />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-pink: #ff6b9d;
+            --secondary-pink: #ff8fab;
+            --light-pink: #ffb3c6;
+            --background-pink: #ffd3e1;
+            --text-dark: #4a4a4a;
+            --text-muted: #7a7a7a;
+            --white: #ffffff;
+            --shadow-pink: rgba(255, 107, 157, 0.25);
+        }
+
+        body {
+    font-family: 'Poppins', sans-serif;
+    background-image: url('images/foto.JPEG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* opcional */
+    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    opacity: 100;
+        }
+
+        /* Floating Hearts Animation */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            color: var(--secondary-pink);
+            opacity: 0.6;
+            animation: heartFloat 8s linear infinite;
+        }
+
+        @keyframes heartFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            padding: 4rem 1rem;
+            position: relative;
+            z-index: 10;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2rem, 8vw, 4rem);
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-pink), #e11d48, var(--secondary-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            animation: bounceGentle 3s ease-in-out infinite;
+        }
+
+        .header p {
+            font-size: clamp(1rem, 4vw, 1.25rem);
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .emoji-row {
+            font-size: clamp(1.5rem, 6vw, 2.5rem);
+            animation: bounceGentle 3s ease-in-out infinite;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Video Section */
+        .video-section {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 32rem;
+            margin: 0 auto;
+            box-shadow: 0 20px 40px -12px var(--shadow-pink);
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-placeholder {
+            aspect-ratio: 1;
+            border-radius: 0.75rem;
+            background: linear-gradient(135deg, #fce7f3, #fecaca);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(251, 113, 133, 0.1));
+        }
+
+        .play-icon {
+            width: 3rem;
+            height: 3rem;
+            color: var(--primary-pink);
+            z-index: 2;
+            position: relative;
+        }
+
+        .message-button {
+            background: linear-gradient(45deg, var(--primary-pink), var(--secondary-pink));
+            color: var(--white);
+            font-weight: 500;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            box-shadow: 0 10px 25px -5px var(--shadow-pink);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .message-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px -5px var(--shadow-pink);
+        }
+
+        /* Music Section */
+        .music-section {
+            margin-bottom: 4rem;
+        }
+
+        .music-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .music-header h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            background: linear-gradient(45deg, var(--primary-pink), #e11d48, var(--secondary-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .music-header p {
+            color: var(--text-muted);
+        }
+
+        .music-grid {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 64rem;
+            margin: 0 auto;
+        }
+
+        .music-item {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 20px 40px -12px var(--shadow-pink);
+            transition: all 0.3s ease;
+        }
+
+        .music-item:hover {
+            transform: scale(1.02);
+        }
+
+        .music-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .music-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex: 1;
+        }
+
+        .music-number {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(45deg, var(--primary-pink), var(--secondary-pink));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .music-details h3 {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+
+        .music-details p {
+            color: var(--text-muted);
+            font-size: clamp(0.8rem, 2.5vw, 0.875rem);
+        }
+
+        .expand-button {
+            background: none;
+            border: none;
+            color: var(--primary-pink);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .expand-button:hover {
+            background: rgba(255, 107, 157, 0.1);
+        }
+
+        .music-player {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 107, 157, 0.2);
+            display: none;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .music-player.show {
+            display: block;
+        }
+
+        .player-container {
+            background: linear-gradient(135deg, #fce7f3, #fecaca);
+            padding: 1rem;
+            border-radius: 0.75rem;
+        }
+
+        .player-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .audio-player {
+            width: 100%;
+            border-radius: 0.5rem;
+            outline: none;
+        }
+
+        .audio-player::-webkit-media-controls-panel {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 0.5rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            padding: 1rem;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 107, 157, 0.2);
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 56rem;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 25px 50px -12px var(--shadow-pink);
+            animation: scaleIn 0.3s ease-out;
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .modal-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            background: linear-gradient(45deg, var(--primary-pink), #e11d48, var(--secondary-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .modal-message {
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .modal-message p {
+            margin-bottom: 1rem;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+        }
+
+        .modal-message strong {
+            color: var(--primary-pink);
+        }
+
+        .quote-block {
+            background: linear-gradient(135deg, #fce7f3, #fecaca);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 107, 157, 0.2);
+            font-style: italic;
+            text-align: center;
+            margin: 1.5rem 0;
+            color: var(--primary-pink);
+            font-weight: 500;
+        }
+
+        .highlight-section {
+            background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-section .main-quote {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            color: var(--primary-pink);
+            margin-bottom: 0.5rem;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+
+        .close-button:hover {
+            background: rgba(255, 107, 157, 0.1);
+            color: var(--primary-pink);
+        }
+
+        .modal-footer {
+            text-align: center;
+            padding-top: 1rem;
+        }
+
+        .close-modal-button {
+            background: none;
+            border: 1px solid var(--primary-pink);
+            color: var(--primary-pink);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .close-modal-button:hover {
+            background: rgba(255, 107, 157, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceGentle {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.95);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1rem;
+            }
+
+            .video-card {
+                padding: 1.5rem;
+            }
+
+            .music-item {
+                padding: 1rem;
+            }
+
+            .music-header-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+                margin: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 1.5rem 0.5rem;
+            }
+
+            .container {
+                padding: 0 0.5rem;
+            }
+
+            .video-card {
+                padding: 1rem;
+            }
+
+            .music-item {
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts Container -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>Para Você, Meu Amor</h1>
+            <p>Dia dos Namorados 2024 💖</p>
+            <div class="emoji-row">💕 ✨ 🌹 ✨ 💕</div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Video Section -->
+<section class="video-section">
+    <div class="video-card">
+        <div class="video-placeholder">
+<video autoplay muted loop playsinline width="100%">
+    <source src="images/video.mp4" type="video/mp4">
+    Seu navegador não suporta o vídeo.
+</video>
+        </div>
+        <button class="message-button" onclick="openModal()">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            Mensagem Especial para Você
+        </button>
+    </div>
+</section>
+
+        <!-- Music Section -->
+        <section class="music-section">
+            <div class="music-header">
+                <h2>Top 10 Músicas que Me Lembram Você 🎵</h2>
+                <p>Cada música conta um pedaço da nossa história</p>
+            </div>
+            
+            <div class="music-grid">
+                <div class="music-item">
+                    <div class="music-header-row">
+                        <div class="music-info">
+                            <div class="music-number">1</div>
+                            <div class="music-details">
+                                <h3>Ainda Gosto de Você</h3>
+                                <p>Uma música que fala do nosso amor verdadeiro</p>
+                            </div>
+                        </div>
+                        <button class="expand-button" onclick="togglePlayer(1)">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="music-player" id="player1">
+                        <div class="player-container">
+                            <div class="player-header">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                                <span style="font-weight: 500; color: var(--primary-pink);">Player de Música</span>
+                            </div>
+                            <audio controls class="audio-player" id="audio1">
+                                <source src="music/1.mp3" type="audio/mpeg">
+                                Seu navegador não suporta áudio.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="music-item">
+                    <div class="music-header-row">
+                        <div class="music-info">
+                            <div class="music-number">2</div>
+                            <div class="music-details">
+                                <h3>Luz Que Me Traz Paz</h3>
+                                <p>Você é minha luz e minha paz</p>
+                            </div>
+                        </div>
+                        <button class="expand-button" onclick="togglePlayer(2)">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="music-player" id="player2">
+                        <div class="player-container">
+                            <div class="player-header">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                                <span style="font-weight: 500; color: var(--primary-pink);">Player de Música</span>
+                            </div>
+                            <audio controls class="audio-player" id="audio2">
+                                <source src="music/2.mp3" type="audio/mpeg">
+                                Seu navegador não suporta áudio.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="music-item">
+                    <div class="music-header-row">
+                        <div class="music-info">
+                            <div class="music-number">3</div>
+                            <div class="music-details">
+                                <h3>Outra Vida</h3>
+                                <p>Em qualquer vida, te escolheria de novo</p>
+                            </div>
+                        </div>
+                        <button class="expand-button" onclick="togglePlayer(3)">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="music-player" id="player3">
+                        <div class="player-container">
+                            <div class="player-header">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                                <span style="font-weight: 500; color: var(--primary-pink);">Player de Música</span>
+                            </div>
+                            <audio controls class="audio-player" id="audio3">
+                                <source src="music/3.mp3" type="audio/mpeg">
+                                Seu navegador não suporta áudio.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="music-item">
+                    <div class="music-header-row">
+                        <div class="music-info">
+                            <div class="music-number">4</div>
+                            <div class="music-details">
+                                <h3>Devagarinho</h3>
+                                <p>Devagar, construindo nosso amor</p>
+                            </div>
+                        </div>
+                        <button class="expand-button" onclick="togglePlayer(4)">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="music-player" id="player4">
+                        <div class="player-container">
+                            <div class="player-header">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                                <span style="font-weight: 500; color: var(--primary-pink);">Player de Música</span>
+                            </div>
+                            <audio controls class="audio-player" id="audio4">
+                                <source src="music/4.mp3" type="audio/mpeg">
+                                Seu navegador não suporta áudio.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="music-item">
+                    <div class="music-header-row">
+                        <div class="music-info">
+                            <div class="music-number">5</div>
+                            <div class="music-details">
+                                <h3>Partilhar</h3>
+                                <p>Quero partilhar toda minha vida com você</p>
+                            </div>
+                        </div>
+                        <button class="expand-button" onclick="togglePlayer(5)">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="music-player" id="player5">
+                        <div class="player-container">
+                            <div class="player-header">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                                <span style="font-weight: 500; color: var(--primary-pink);">Player de Música</span>
+                            </div>
+                            <audio controls class="audio-player" id="audio5">
+                                <source src="music/5.mp3" type="audio/mpeg">
+                                Seu navegador não suporta áudio.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="music-item">
+                    <div class="music-header-row">
+                        <div class="music-info">
+                            <div class="music-number">6</div>
+                            <div class="music-details">
+                                <h3>Lisboa</h3>
+                                <p>Sonhando com nossas viagens juntos</p>
+                            </div>
+                        </div>
+                        <button class="expand-button" onclick="togglePlayer(6)">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="music-player" id="player6">
+                        <div class="player-container">
+                            <div class="player-header">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                                <span style="font-weight: 500; color: var(--primary-pink);">Player de Música</span>
+                            </div>
+                            <audio controls class="audio-player" id="audio6">
+                                <source src="music/6.mp3" type="audio/mpeg">
+                                Seu navegador não suporta áudio.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="music-item">
+                    <div class="music-header-row">
+                        <div class="music-info">
+                            <div class="music-number">7</div>
+                            <div class="music-details">
+                                <h3>Quadro Verde</h3>
+                                <p>Pintando nossa história de amor</p>
+                            </div>
+                        </div>
+                        <button class="expand-button" onclick="togglePlayer(7)">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="music-player" id="player7">
+                        <div class="player-container">
+                            <div class="player-header">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                                <span style="font-weight: 500; color: var(--primary-pink);">Player de Música</span>
+                            </div>
+                            <audio controls class="audio-player" id="audio7">
+                                <source src="music/7.mp3" type="audio/mpeg">
+                                Seu navegador não suporta áudio.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="music-item">
+                    <div class="music-header-row">
+                        <div class="music-info">
+                            <div class="music-number">8</div>
+                            <div class="music-details">
+                                <h3>Lord Huron - The Night We Met</h3>
+                                <p>A noite que nos conhecemos mudou tudo</p>
+                            </div>
+                        </div>
+                        <button class="expand-button" onclick="togglePlayer(8)">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="music-player" id="player8">
+                        <div class="player-container">
+                            <div class="player-header">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                                <span style="font-weight: 500; color: var(--primary-pink);">Player de Música</span>
+                            </div>
+                            <audio controls class="audio-player" id="audio8">
+                                <source src="music/8.mp3" type="audio/mpeg">
+                                Seu navegador não suporta áudio.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="music-item">
+                    <div class="music-header-row">
+                        <div class="music-info">
+                            <div class="music-number">9</div>
+                            <div class="music-details">
+                                <h3>RÜFÜS DU SOL - Innerbloom</h3>
+                                <p>Florescendo juntos como um só</p>
+                            </div>
+                        </div>
+                        <button class="expand-button" onclick="togglePlayer(9)">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="music-player" id="player9">
+                        <div class="player-container">
+                            <div class="player-header">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                                <span style="font-weight: 500; color: var(--primary-pink);">Player de Música</span>
+                            </div>
+                            <audio controls class="audio-player" id="audio9">
+                                <source src="music/9.mp3" type="audio/mpeg">
+                                Seu navegador não suporta áudio.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="music-item">
+                    <div class="music-header-row">
+                        <div class="music-info">
+                            <div class="music-number">10</div>
+                            <div class="music-details">
+                                <h3>Steve Lacy - Infrunami</h3>
+                                <p>Você é a única que eu quero e preciso</p>
+                            </div>
+                        </div>
+                        <button class="expand-button" onclick="togglePlayer(10)">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6 9l6 6 6-6"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="music-player" id="player10">
+                        <div class="player-container">
+                            <div class="player-header">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                                <span style="font-weight: 500; color: var(--primary-pink);">Player de Música</span>
+                            </div>
+                            <audio controls class="audio-player" id="audio10">
+                                <source src="music/10.mp3" type="audio/mpeg">
+                                Seu navegador não suporta áudio.
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button class="close-button" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <div class="modal-title">
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                    Uma Mensagem do Coração
+                    <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="modal-message">
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <p style="font-size: 1.125rem; font-weight: 500; color: var(--primary-pink);">
+                        Meu amor, você é a luz da minha vida ✨
+                    </p>
+                </div>
+                
+                <p>
+                    Oi, minha princesa. Dia 12 né? É, talvez eu pudesse esperar até amanhã, mas você me conhece né… 
+                    meu coração nunca sabe guardar nada quando se trata de você. Então, se você estiver lendo isso 
+                    assim que acordar: <strong>bom dia, meu amor. feliz dia dos namorados.</strong> 🩷
+                </p>
+                
+                <p>
+                    Eu não sei nem por onde começar, porque falar de você é tipo tentar descrever o que sinto ouvindo 
+                    "Outra vida" do Armandinho ou "Luz que me traz paz" do Maneva. É um misto de calmaria e arrepio, 
+                    de sorriso bobo e vontade de chorar de felicidade. É saber que o mundo pode estar em chamas, 
+                    mas enquanto eu tiver você, eu tô em casa.
+                </p>
+                
+                <p>
+                    Você virou tudo. Você virou pensamento em música, virou lembrança boa no meio da correria, 
+                    virou o motivo do meu sorriso quando ouço "Infrunami", quando escuto "Dark Red" e fico lembrando 
+                    dos nossos momentos, do seu jeitinho que me tira do eixo mas me alinha com a vida. 
+                    <strong>Tem amor que é bonito de ver. O nosso é bonito de viver.</strong>
+                </p>
+                
+                <p>
+                    A verdade é que às vezes você me deixa maluco, às vezes a gente briga por besteira, às vezes eu sou 
+                    teimoso, você também. Mas mesmo quando tudo parece querer desandar, é com você que eu quero fazer as pazes, 
+                    é com você que eu quero recomeçar. E é isso que me dá certeza do amor que a gente construiu, 
+                    ele é real, mesmo quando é difícil.
+                </p>
+                
+                <div class="quote-block">
+                    <p style="margin: 0;">
+                        "Você era o tipo certo<br />
+                        Sim, você era mais do que apenas um sonho<br />
+                        Você estava fora do meu alcance"
+                    </p>
+                </div>
+                
+                <p>
+                    Você é como essa música para mim, meu amor. Eu te amo muito, você me faz MUITO feliz, 
+                    mesmo que também MUITO estressado, você me endoida, mas eu já vivi sem você algumas vezes, 
+                    e eu decidi, que não quero viver normalmente sem você, não quero outra namorada, não quero outra boca, 
+                    não quero outra pessoa, <strong>eu quero você.</strong>
+                </p>
+                
+                <p>
+                    Você virou minha rotina sem esforço. Meu pensamento favorito. Minha paz. Eu fico te ouvindo reclamar 
+                    de tudo, e mesmo quando você tá estressada, é a coisa mais linda do mundo. Eu olho pra você e penso: 
+                    "meu Deus, como é que eu tive tanta sorte?"
+                </p>
+                
+                <p>
+                    E eu prometo, amor, por tudo que é mais sagrado, que vou continuar escolhendo você. 
+                    Mesmo nos dias nublados. Mesmo quando a gente não se entender. Mesmo quando der vontade de largar tudo, 
+                    é você. Vai continuar sendo você.
+                </p>
+                <p>
+                    Eu quero a gente na nossa casa, fodendo a hora que a gente quiser, sem se preocupar com barulho da cama, sem se preocupar se a gente pode ir tomar banho e transar, sem eu ter que ficar tampando sua boca para abafar os seus gemidos, poder dar tapa na sua bunda, na sua cara, do jeitinho que você gosta, a hora que a gente quiser.
+                </p>
+                <p>
+                    Eu amo tudo em você, amo sua boca deliciosa, seus olhos lindos, sua cintura perfeita, sua bunda gostosa, seu peito maravilhoso, seu boquete espetacular, o jeito que você senta em cima de mim, o jeito que você me olha quando tá com tesão, quero poder estar assistindo um filme na televisão com você, começar a te olhar com maldade, por você de 4 e fuder você, sem me preocupar com nada, puxar seu cabelo, te por de 4, por cima de mim, qualquer posição mesmo, quero poder te fuder sem preocupação alguma.
+                </p>
+
+                <div class="highlight-section">
+                    <p class="main-quote">
+                        Eu te amo de corpo, coração e alma ❤️
+                    </p>
+                    <p style="font-size: 0.875rem; margin: 0;">
+                        Te amo com intensidade de música boa que não enjoa nunca. Te amo com força de refrão que gruda, 
+                        que marca, que fica. Te amo com a leveza do mar do Armandinho e com a verdade que só você me traz.
+                    </p>
+                </div>
+                
+                <div style="text-align: center; margin-top: 1.5rem;">
+                    <p style="font-weight: 500; color: var(--primary-pink); margin-bottom: 0.5rem;">
+                        Obrigado por ser minha doida, minha menina, minha princesa, minha parceira, minha luz.
+                    </p>
+                    <p style="font-family: 'Dancing Script', cursive; font-size: 1.125rem; background: linear-gradient(45deg, var(--primary-pink), #e11d48, var(--secondary-pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem;">
+                        Feliz dia dos namorados, amor da minha vida.
+                    </p>
+                    <p style="font-size: 0.875rem; color: var(--text-muted); margin: 0;">
+                        Do teu menino, teu besta, teu idiota, teu príncipe da vida real. 👑
+                    </p>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="close-modal-button" onclick="closeModal()">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                    Fechar com Amor
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Floating Hearts Animation
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💖';
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = (16 + Math.random() * 16) + 'px';
+            heart.style.animationDuration = (8 + Math.random() * 4) + 's';
+            heart.style.animationDelay = (Math.random() * 2) + 's';
+            
+            document.getElementById('floatingHearts').appendChild(heart);
+            
+            setTimeout(() => {
+                if (heart.parentNode) {
+                    heart.parentNode.removeChild(heart);
+                }
+            }, 12000);
+        }
+
+        // Create hearts periodically
+        setInterval(createHeart, 800);
+
+        // Create initial hearts
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createHeart, i * 200);
+        }
+
+        // Stop all other audio players
+        function stopAllAudio() {
+            for (let i = 1; i <= 10; i++) {
+                const audio = document.getElementById('audio' + i);
+                if (audio) {
+                    audio.pause();
+                    audio.currentTime = 0;
+                }
+            }
+        }
+
+        // Toggle music player
+        function togglePlayer(id) {
+            const player = document.getElementById('player' + id);
+            const button = player.previousElementSibling.querySelector('.expand-button svg');
+            const audio = document.getElementById('audio' + id);
+            
+            if (player.classList.contains('show')) {
+                player.classList.remove('show');
+                button.style.transform = 'rotate(0deg)';
+                audio.pause();
+            } else {
+                // Close all other players and stop audio
+                document.querySelectorAll('.music-player.show').forEach(p => {
+                    p.classList.remove('show');
+                    const btn = p.previousElementSibling.querySelector('.expand-button svg');
+                    btn.style.transform = 'rotate(0deg)';
+                });
+                
+                stopAllAudio();
+                
+                player.classList.add('show');
+                button.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Add event listeners to all audio elements to stop others when one starts playing
+        document.addEventListener('DOMContentLoaded', function() {
+            for (let i = 1; i <= 10; i++) {
+                const audio = document.getElementById('audio' + i);
+                if (audio) {
+                    audio.addEventListener('play', function() {
+                        // Stop all other audio when this one starts playing
+                        for (let j = 1; j <= 10; j++) {
+                            if (j !== i) {
+                                const otherAudio = document.getElementById('audio' + j);
+                                if (otherAudio) {
+                                    otherAudio.pause();
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+        });
+
+        // Modal functions
+        function openModal() {
+            document.getElementById('modal').classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Smooth scroll animation observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe music items for scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.music-item').forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
